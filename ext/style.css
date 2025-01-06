@@ -1,5 +1,7 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Inter", serif;
+    font-weight: 400;
+    font-style: normal;
     margin: 0;
     padding: 0;
     background-color: #f4f4f9;
@@ -7,7 +9,7 @@ body {
   }
 
   header {
-    background-color: #b48111;
+    background-color: #ea7735;
     color: white;
     padding: 0.05em 0;
     text-align: center;
@@ -34,14 +36,14 @@ body {
     padding: 0.5em 1em;
     font-size: 1em;
     color: white;
-    background-color: #b48111;
+    background-color: #ea7735;
     border: none;
     border-radius: 4px;
     cursor: pointer;
   }
 
   form button:hover {
-    background-color: #8a620e;
+    background-color: #af5b2b;
   }
 
   .movie-list, .person-list {
@@ -66,4 +68,18 @@ body {
   .details {
     font-size: 0.9em;
     margin-top: 0.5em;
+  }
+
+  .ml16 {
+    color: #333;
+    font-weight: 800;
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    overflow: hidden;
+  }
+  
+  .ml16 .letter {
+    display: inline-block;
+    line-height: 1em;
   }
