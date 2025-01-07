@@ -106,3 +106,63 @@ form button:hover {
   display: inline-block;
   line-height: 1em;
 }
+
+.hidden {
+  display: none;
+}
+
+.buttons {
+  display: flex;
+  gap: 1em;
+  margin-bottom: 1em;
+}
+
+.buttons button {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  background-color: #ea7735;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: #af5b2b;
+}
+
+.person {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.person img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 4px; 
+  display: block; 
+  object-fit: cover; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
+
+.person img:hover {
+  transform: scale(1.03); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
+
+.person h3 {
+  margin: 0.5em 0;
+}
+
+.details {
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
+
+
+
+

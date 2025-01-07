@@ -1,68 +1,94 @@
 function displayTopMovies(movies, containerId) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = '';
-    if (movies.length === 0) {
-      container.innerHTML = '<p>No movies found.</p>';
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  if (movies.length === 0) {
+    container.innerHTML = '<p>No movies or TV shows found.</p>';
+    return;
+  }
+  movies.forEach(movie => {
+    const title = movie.title || movie.name || 'No title';
+    const releaseDate = movie.release_date || movie.first_air_date || 'N/A';
+    const poster = movie.poster_path ? `${IMAGE_BASE_URL}${movie.poster_path}` : '';
+
+    const movieDiv = document.createElement('div');
+    movieDiv.classList.add('movie');
+    movieDiv.innerHTML = `
+      <img src="${poster}" alt="${title}">
+      <h3>${title}</h3>
+      <p>Rating: ${movie.vote_average || 'N/A'}</p>
+      <p>Release Date: ${releaseDate}</p>
+    `;
+    container.appendChild(movieDiv);
+  });
+}
+
+function displayMoviesWithDescription(movies, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = '';
+  if (movies.length === 0) {
+      container.innerHTML = '<p>No movies or TV shows found.</p>';
       return;
-    }
-    movies.forEach(movie => {
+  }
+  movies.forEach(movie => {
+      const title = movie.title || movie.name || 'No title';
+      const releaseDate = movie.release_date || movie.first_air_date || 'N/A';
+      const overview = movie.overview || 'No description available.';
+      const poster = movie.poster_path ? `${IMAGE_BASE_URL}${movie.poster_path}` : '';
+      const mediaType = movie.media_type === 'movie' ? 'Film' : 'TV Show'; // Determine the type
+
       const movieDiv = document.createElement('div');
       movieDiv.classList.add('movie');
       movieDiv.innerHTML = `
-        <img src="${IMAGE_BASE_URL}${movie.poster_path}" alt="${movie.title || 'No title'}">
-        <h3>${movie.title || 'No title'}</h3>
-        <p>Rating: ${movie.vote_average || 'N/A'}</p>
-        <p>Release Date: ${movie.release_date || 'N/A'}</p>
+          <img src="${poster}" alt="${title}">
+          <h3>${title} (${mediaType})</h3> <!-- Include media type here -->
+          <p>Rating: ${movie.vote_average || 'N/A'}</p>
+          <p>Release Date: ${releaseDate}</p>
+          <div class="details">
+              <p>${overview}</p>
+          </div>
       `;
       container.appendChild(movieDiv);
-    });
-  }
-  
-  function displayMoviesWithDescription(movies, containerId) {
-    const container = document.getElementById(containerId);
-    container.innerHTML = '';
-    if (movies.length === 0) {
-      container.innerHTML = '<p>No movies found.</p>';
+  });
+}
+
+
+function displayPeople(people, containerId) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = ''; 
+
+  if (people.length === 0) {
+      container.innerHTML = '<p>No actors found.</p>';
       return;
-    }
-    movies.forEach(movie => {
-      const movieDiv = document.createElement('div');
-      movieDiv.classList.add('movie');
-      movieDiv.innerHTML = `
-        <img src="${IMAGE_BASE_URL}${movie.poster_path}" alt="${movie.title || 'No title'}">
-        <h3>${movie.title || 'No title'}</h3>
-        <p>Rating: ${movie.vote_average || 'N/A'}</p>
-        <p>Release Date: ${movie.release_date || 'N/A'}</p>
-        <div class="details">
-          <p>${movie.overview || 'No description available.'}</p>
-        </div>
-      `;
-      container.appendChild(movieDiv);
-    });
   }
-  
-  function displayPeople(people) {
-    const container = document.getElementById('searchPeople');
-    container.innerHTML = '';
-    if (people.length === 0) {
-      container.innerHTML = '<p>No people found.</p>';
-      return;
-    }
-    people.forEach(person => {
+
+  people.forEach(person => {
       const personDiv = document.createElement('div');
-      personDiv.classList.add('person');
-      const knownFor = person.known_for.map(item => {
-        return `${item.media_type === 'movie' ? 'Movie' : 'TV'}: ${item.title || item.name}`;
-      }).join('<br>');
+      personDiv.classList.add('person'); 
+
+      const profileImage = person.profile_path 
+          ? `https://image.tmdb.org/t/p/w500${person.profile_path}`
+          : 'path/to/default/image.jpg'; 
+
+      const knownForRole = person.known_for_department || 'Unknown role'; 
+
+      const knownForWorks = person.known_for && person.known_for.length > 0 
+          ? `<ul>${person.known_for.map(movie => {
+              const title = movie.title || movie.name;
+              const type = movie.media_type === 'movie' ? 'Film' : 'TV-serie';
+              return `<li>${title} (${type})</li>`; 
+          }).join('')}</ul>`
+          : '<p>No known movies or series.</p>'; 
+
       personDiv.innerHTML = `
-        <img src="${IMAGE_BASE_URL}${person.profile_path}" alt="${person.name || 'No name'}">
-        <h3>${person.name || 'No name'}</h3>
-        <p>Known For: ${person.known_for_department || 'N/A'}</p>
-        <div class="details">
-          <p>${knownFor || 'No known works.'}</p>
-        </div>
+          <img src="${profileImage}" alt="${person.name}">
+          <h3>${person.name}</h3>
+          <p>Role: ${knownForRole}</p> 
+          <p>Known for:</p> 
+          ${knownForWorks} 
       `;
+      
       container.appendChild(personDiv);
-    });
-  }
-  
+  });
+}
+
+
