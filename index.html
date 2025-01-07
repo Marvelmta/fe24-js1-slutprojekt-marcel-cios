@@ -21,14 +21,20 @@
     </div>
 
     <form id="searchForm">
-      <input type="text" id="searchQuery" name="query" class="bonus" placeholder="Search for a movie, series or actor" required>
-      <button type="submit" class="customfont">Search</button>
-    </form>
+      <input type="text" id="searchQuery" placeholder="Search...">
+      <select id="searchType">
+          <option value="all">All</option>
+          <option value="movies">Movies/TV Shows</option>
+          <option value="people">Actors</option>
+      </select>
+      <button type="submit">Search</button>
+  </form>
     
     <div id="topRated" class="movie-list hidden"></div>
     <div id="mostPopular" class="movie-list hidden"></div>
     <div id="searchMovies" class="movie-list hidden"></div>
     <div id="searchPeople" class="person-list hidden"></div>
+    
   </div>  
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
