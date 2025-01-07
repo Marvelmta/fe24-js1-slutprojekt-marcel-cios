@@ -8,6 +8,20 @@ body {
   color: #333;
 }
 
+.customfont {
+font-family: "Inter", serif;
+font-weight: 400;
+font-style: normal;
+}
+
+.bonus {
+font-family: "Inter", serif;
+font-weight: 400;
+font-style: normal;
+border: 1px solid #ddd;
+border-radius: 8px;
+}
+
 header {
   background-color: #ea7735;
   color: white;
