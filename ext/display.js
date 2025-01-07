@@ -11,6 +11,7 @@ function displayTopMovies(movies, containerId) {
       movieDiv.innerHTML = `
         <img src="${IMAGE_BASE_URL}${movie.poster_path}" alt="${movie.title || 'No title'}">
         <h3>${movie.title || 'No title'}</h3>
+        <p>Rating: ${movie.vote_average || 'N/A'}</p>
         <p>Release Date: ${movie.release_date || 'N/A'}</p>
       `;
       container.appendChild(movieDiv);
@@ -30,6 +31,7 @@ function displayTopMovies(movies, containerId) {
       movieDiv.innerHTML = `
         <img src="${IMAGE_BASE_URL}${movie.poster_path}" alt="${movie.title || 'No title'}">
         <h3>${movie.title || 'No title'}</h3>
+        <p>Rating: ${movie.vote_average || 'N/A'}</p>
         <p>Release Date: ${movie.release_date || 'N/A'}</p>
         <div class="details">
           <p>${movie.overview || 'No description available.'}</p>

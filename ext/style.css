@@ -1,85 +1,94 @@
 body {
-    font-family: "Inter", serif;
-    font-weight: 400;
-    font-style: normal;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    color: #333;
-  }
+  font-family: "Inter", serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
 
-  header {
-    background-color: #ea7735;
-    color: white;
-    padding: 0.05em 0;
-    text-align: center;
-  }
+header {
+  background-color: #ea7735;
+  color: white;
+  padding: 0.05em 0;
+  text-align: center;
+}
 
-  .container {
-    padding: 1em;
-  }
+.container {
+  padding: 1em;
+}
 
-  form {
-    margin: 1em 0;
-    display: flex;
-    gap: 0.5em;
-    align-items: center;
-  }
+form {
+  margin: 1em 0;
+  display: flex;
+  gap: 0.5em;
+  align-items: center;
+}
 
-  form input {
-    flex: 1;
-    padding: 0.5em;
-    font-size: 1em;
-  }
+form input {
+  flex: 0.2;
+  padding: 0.5em;
+  font-size: 1em;
+}
 
-  form button {
-    padding: 0.5em 1em;
-    font-size: 1em;
-    color: white;
-    background-color: #ea7735;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
+form button {
+  padding: 0.5em 1em;
+  font-size: 1em;
+  color: #333;
+  background-color: #ea7735;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
 
-  form button:hover {
-    background-color: #af5b2b;
-  }
+form button:hover {
+  background-color: #af5b2b;
+}
 
-  .movie-list, .person-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-    gap: 1em;
-  }
+.movie-list, .person-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1em;
+}
 
-  .movie, .person {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
+.movie, .person {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 1em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-  .movie img, .person img {
-    max-width: 100%;
-    border-radius: 4px;
-  }
+.movie img, .person img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 4px; 
+  display: block; 
+  object-fit: cover; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
+}
 
-  .details {
-    font-size: 0.9em;
-    margin-top: 0.5em;
-  }
+.movie img:hover, .person img:hover {
+  transform: scale(1.03); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
+}
 
-  .ml16 {
-    color: #333;
-    font-weight: 800;
-    font-size: 2em;
-    text-transform: uppercase;
-    letter-spacing: 0.5em;
-    overflow: hidden;
-  }
+.details {
+  font-size: 0.9em;
+  margin-top: 0.5em;
+}
+
+.ml16 {
+  color: #333;
+  font-weight: 800;
+  font-size: 2em;
+  text-transform: uppercase;
+  letter-spacing: 0.5em;
+  overflow: hidden;
+}
   
-  .ml16 .letter {
-    display: inline-block;
-    line-height: 1em;
-  }
+.ml16 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
