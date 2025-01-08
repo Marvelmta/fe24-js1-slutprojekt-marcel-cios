@@ -6,14 +6,13 @@
   <link rel="stylesheet" href="/ext/style.css">
   <title>TMDB Database</title>
 </head>
+
 <body>
   <header>
-    <h1 class="ml16">TMDB</h1>
+    <h1 class="ml16">The Movie Database</h1>
   </header>
 
-  
   <div class="container">
-    
     <div class="buttons">
       <button type="submit" onClick="refreshPage()" class="customfont">Home</button>
       <button id="topRatedButton" class="customfont">Top Rated</button>
@@ -34,7 +33,6 @@
     <div id="mostPopular" class="movie-list hidden"></div>
     <div id="searchMovies" class="movie-list hidden"></div>
     <div id="searchPeople" class="person-list hidden"></div>
-    
   </div>  
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
@@ -42,5 +40,6 @@
   <script src="/ext/fetch.js"></script>
   <script src="/ext/display.js"></script>
   <script src="/ext/search.js"></script>
+  
 </body>
 </html>

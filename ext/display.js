@@ -8,7 +8,7 @@ function displayTopMovies(movies, containerId) {
   movies.forEach(movie => {
     const title = movie.title || movie.name || 'No title';
     const releaseDate = movie.release_date || movie.first_air_date || 'N/A';
-    const poster = movie.poster_path ? `${IMAGE_BASE_URL}${movie.poster_path}` : '';
+    const poster = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : '';
 
     const movieDiv = document.createElement('div');
     movieDiv.classList.add('movie');
@@ -18,6 +18,7 @@ function displayTopMovies(movies, containerId) {
       <p>Rating: ${movie.vote_average || 'N/A'}</p>
       <p>Release Date: ${releaseDate}</p>
     `;
+    
     container.appendChild(movieDiv);
   });
 }
@@ -33,16 +34,15 @@ function displayMoviesWithDescription(movies, containerId) {
       const title = movie.title || movie.name || 'No title';
       const releaseDate = movie.release_date || movie.first_air_date || 'N/A';
       const overview = movie.overview || 'No description available.';
-      const poster = movie.poster_path ? `${IMAGE_BASE_URL}${movie.poster_path}` : '';
-      const mediaType = movie.media_type === 'movie' ? 'Film' : 'TV Show'; // Determine the type
+      const poster = movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : '';
+      const mediaType = movie.media_type === 'movie' ? 'Film' : 'TV Show'; 
 
-      // Only add to the display if there is a poster
       if (poster) {
           const movieDiv = document.createElement('div');
           movieDiv.classList.add('movie');
           movieDiv.innerHTML = `
               <img src="${poster}" alt="${title}">
-              <h3>${title} (${mediaType})</h3> <!-- Include media type here -->
+              <h3>${title} (${mediaType})</h3> 
               <p>Rating: ${movie.vote_average || 'N/A'}</p>
               <p>Release Date: ${releaseDate}</p>
               <div class="details">
@@ -53,8 +53,6 @@ function displayMoviesWithDescription(movies, containerId) {
       }
   });
 }
-
-
 
 function displayPeople(people, containerId) {
   const container = document.getElementById(containerId);
@@ -68,15 +66,13 @@ function displayPeople(people, containerId) {
   people.forEach(person => {
       const profileImage = person.profile_path 
           ? `https://image.tmdb.org/t/p/w500${person.profile_path}` 
-          : 'path/to/default/image.jpg'; // Use a default image if no profile exists
+          : 'path/to/default/image.jpg'; 
 
-      // Only add to the display if there is a profile image
       if (person.profile_path) {
           const personDiv = document.createElement('div');
           personDiv.classList.add('person');
 
           const knownForRole = person.known_for_department || 'Unknown role';
-
           const knownForWorks = person.known_for && person.known_for.length > 0 
               ? `<ul>${person.known_for.map(movie => {
                   const title = movie.title || movie.name;
