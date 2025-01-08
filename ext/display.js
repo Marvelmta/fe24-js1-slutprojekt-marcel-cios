@@ -34,9 +34,8 @@ function displayMoviesWithDescription(movies, containerId) {
       const releaseDate = movie.release_date || movie.first_air_date || 'N/A';
       const overview = movie.overview || 'No description available.';
       const poster = movie.poster_path ? `${IMAGE_BASE_URL}${movie.poster_path}` : '';
-      const mediaType = movie.media_type === 'movie' ? 'Film' : 'TV Show'; // Determine the type
+      const mediaType = movie.media_type === 'movie' ? 'Film' : 'TV Show'; 
 
-      // Only add to the display if there is a poster
       if (poster) {
           const movieDiv = document.createElement('div');
           movieDiv.classList.add('movie');
@@ -54,8 +53,6 @@ function displayMoviesWithDescription(movies, containerId) {
   });
 }
 
-
-
 function displayPeople(people, containerId) {
   const container = document.getElementById(containerId);
   container.innerHTML = '';
@@ -68,9 +65,8 @@ function displayPeople(people, containerId) {
   people.forEach(person => {
       const profileImage = person.profile_path 
           ? `https://image.tmdb.org/t/p/w500${person.profile_path}` 
-          : 'path/to/default/image.jpg'; // Use a default image if no profile exists
+          : 'path/to/default/image.jpg';
 
-      // Only add to the display if there is a profile image
       if (person.profile_path) {
           const personDiv = document.createElement('div');
           personDiv.classList.add('person');
