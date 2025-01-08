@@ -41,7 +41,7 @@ function displayMoviesWithDescription(movies, containerId) {
           movieDiv.classList.add('movie');
           movieDiv.innerHTML = `
               <img src="${poster}" alt="${title}">
-              <h3>${title} (${mediaType})</h3> <!-- Include media type here -->
+              <h3>${title} (${mediaType})</h3>
               <p>Rating: ${movie.vote_average || 'N/A'}</p>
               <p>Release Date: ${releaseDate}</p>
               <div class="details">
